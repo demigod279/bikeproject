@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="text-center">
+                <h2>Dry Cleaning Delivery Service</h2>
+                <p>This is iHomevalet , a full service Home Delivery Dry Cleaning & Laundry Service to your door. . How it works is simple. Just click the Signup link and Enter your Name, email address, and address into the signup form. Select the Day and Time from the schedule. You will receive a welcome letter via email with contact information from the cleaners. A Delivery person will then arrive to give you a Laundry bag and personalized tag. Place the clothes in the bag and give them to the delivery person. The clothes will then be returned to your door step on the drop off day 2 days later.</p>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="text-center">
+                <h2>Some of Our Cleaners</h2>
+                <p>
+                    Pick up and Delivery
+
+                    We understand that dropping off and picking up your drycleaning are just two more chores on your long list of to-dos.
+                    <br><br>
+                    Why not pass them off to us?<br><br>
+
+                    Our Pick Up and Delivery service comes right to your door… even when you aren’t at home.<br>
+                </p>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>
