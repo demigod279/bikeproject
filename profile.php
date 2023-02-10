@@ -13,9 +13,10 @@ include('DatabaseClassConfig.php');
 
 //End Code Here
 
+
 include('footerbase.php');
 
-$smarty->display('categoriesedit.tpl');
+$smarty->display('profile.tpl');
 
 
 ?>

@@ -1,25 +1,30 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2023-01-23 08:12:12
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2023-02-10 06:35:39
          compiled from ".\templates\index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:44584630663ceb1dcb279c1-38541788%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:175412464563e6563b85e644-21725894%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '6b5a01c8363a087d3d942b34a93dfecfa46b7e78' => 
     array (
       0 => '.\\templates\\index.tpl',
-      1 => 1674487045,
+      1 => 1675173749,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '44584630663ceb1dcb279c1-38541788',
+  'nocache_hash' => '175412464563e6563b85e644-21725894',
   'function' => 
   array (
   ),
+  'variables' => 
+  array (
+    'ListCategories' => 0,
+    'ListProducts' => 0,
+  ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_63ceb1dcb44060_79072880',
+  'unifunc' => 'content_63e6563b87f262_98634593',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_63ceb1dcb44060_79072880')) {function content_63ceb1dcb44060_79072880($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_63e6563b87f262_98634593')) {function content_63e6563b87f262_98634593($_smarty_tpl) {?>
 <!DOCTYPE html>
 <html>
 
@@ -36,7 +41,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <!-- HERO SECTION-->
         <div class="container">
             <section class="hero pb-3 bg-cover bg-center d-flex align-items-center"
-                style="background: url('images/specialbikeimage.jpg')">
+                style="background: url('images/epicBiking.jpg')">
                 <div class="container py-5">
                     <div class="row px-4 px-lg-5">
                         <div class="col-lg-6">
@@ -50,6 +55,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 
             <!-- CATEGORIES SECTION-->
+           
+            
             <section class="pt-5">
                 <header class="text-center">
                     <p class="small text-muted small text-uppercase mb-1">Quality Bikes and Accessories</p>
@@ -57,14 +64,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </header>
                 <div class="row">
 
-                    <!-- CATEGORIES SECTION this div section gets replaced by the database categories dd the image varchar(255) to the-->
-                    <div class="col-md-4"><a class="category-item" href="shop.php?category_id"><img class="img-fluid"
-                                src="images\bike1.jpg" alt="" /><strong class="category-item-title">[categories
-                                name]</strong></a>
-                    </div>
+                    <!- - CATEGORIES SECTION this div section gets replaced by the database categories dd the image varchar(255) to the- ->
+                    <?php echo $_smarty_tpl->tpl_vars['ListCategories']->value;?>
+
 
                 </div>
             </section>
+            
 
             
             <!-- TRENDING PRODUCTS-->
@@ -77,28 +83,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
                 <div class="row">
                     <!-- PRODUCT   This whole section gets insert by the database  add the image varchar(255) to the products-->
-                    <div class="col-xl-3 col-lg-4 col-sm-6">
-                        <div class="product text-center">
-                            <div class="position-relative mb-3">
-                                <div class="badge text-white bg-"></div><a class="d-block"
-                                    href="detail.php?id=[productid]"><img class="img-fluid w-100" src="images\bike2.jpg"
-                                        alt="..."></a>
-                                <div class="product-overlay">
-                                    <ul class="mb-0 list-inline">
-                                        <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark"
-                                                href="#!"><i class="far fa-heart"></i></a></li>
-                                        <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark"
-                                                href="cart.php">Add to cart</a></li>
-                                        <li class="list-inline-item me-0"><a class="btn btn-sm btn-outline-dark"
-                                                href="#productView" data-bs-toggle="modal"><i
-                                                    class="fas fa-expand"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <h6> <a class="reset-anchor" href="detail.php?id=[productid]">[productname]</a></h6>
-                            <p class="small text-muted">[productprice]</p>
-                        </div>
-                    </div>
+                    <?php echo $_smarty_tpl->tpl_vars['ListProducts']->value;?>
+
 
 
                 </div>

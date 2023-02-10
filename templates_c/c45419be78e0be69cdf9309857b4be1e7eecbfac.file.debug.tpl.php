@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2023-01-23 06:18:57
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2023-02-02 06:14:42
          compiled from "C:\Sites\bikeproject\libs\debug.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:101851906463ce975110ff98-73773105%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c45419be78e0be69cdf9309857b4be1e7eecbfac' => 
     array (
       0 => 'C:\\Sites\\bikeproject\\libs\\debug.tpl',
-      1 => 1670854730,
+      1 => 1675347280,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_63ce975112cb17_02900900',
   'variables' => 
   array (
     'template_name' => 0,
@@ -28,8 +30,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'debug_output' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_63ce975112cb17_02900900',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_63ce975112cb17_02900900')) {function content_63ce975112cb17_02900900($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_debug_print_var')) include 'C:\\Sites\\bikeproject\\libs\\plugins\\modifier.debug_print_var.php';
 ?><?php $_smarty_tpl->_capture_stack[0][] = array('_smarty_debug', 'debug_output', null); ob_start(); ?>
@@ -195,6 +195,7 @@ if (!empty($_capture_buffer)) {
  if (isset( $_capture_append)) $_smarty_tpl->append( $_capture_append, ob_get_contents());
  Smarty::$_smarty_vars['capture'][$_capture_buffer]=ob_get_clean();
 } else $_smarty_tpl->capture_error();?>
+<!--
 <?php echo '<script'; ?>
  type="text/javascript">
     <?php $_smarty_tpl->tpl_vars['id'] = new Smarty_variable(md5((($tmp = @$_smarty_tpl->tpl_vars['template_name']->value)===null||$tmp==='' ? '' : $tmp)), null, 0);?>
@@ -205,4 +206,5 @@ if (!empty($_capture_buffer)) {
     _smarty_console.document.close();
 <?php echo '</script'; ?>
 >
+
 <?php }} ?>

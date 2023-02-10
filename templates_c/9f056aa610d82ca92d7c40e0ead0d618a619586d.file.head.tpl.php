@@ -1,28 +1,28 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2023-01-23 08:12:12
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2023-02-10 06:35:39
          compiled from ".\templates\head.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:93888397763ceb1dcb4ddb0-02814487%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:163561018763e6563b88aef6-97346379%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9f056aa610d82ca92d7c40e0ead0d618a619586d' => 
     array (
       0 => '.\\templates\\head.tpl',
-      1 => 1674486705,
+      1 => 1675263380,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '93888397763ceb1dcb4ddb0-02814487',
+  'nocache_hash' => '163561018763e6563b88aef6-97346379',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_63ceb1dcb4eaf7_87932367',
+  'unifunc' => 'content_63e6563b88bee0_91847502',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_63ceb1dcb4eaf7_87932367')) {function content_63ceb1dcb4eaf7_87932367($_smarty_tpl) {?><head>
+<?php if ($_valid && !is_callable('content_63e6563b88bee0_91847502')) {function content_63e6563b88bee0_91847502($_smarty_tpl) {?><head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Boutique | Ecommerce bootstrap template</title>
+    <title>Bike</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -43,4 +43,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/boutique/2-0/css/custom.0a822280.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/favicon.937cfaa3.png">
+    
+    <?php echo '<script'; ?>
+ src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.1/jquery.min.js"><?php echo '</script'; ?>
+>
+
+
+    <?php echo '<script'; ?>
+ src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
+    <style>
+    .modal-backdrop {
+      opacity:.5;
+    }
+    </style>
   </head><?php }} ?>

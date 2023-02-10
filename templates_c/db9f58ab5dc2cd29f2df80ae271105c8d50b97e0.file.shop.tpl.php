@@ -1,12 +1,42 @@
-<!DOCTYPE html>
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2023-02-10 05:44:27
+         compiled from ".\templates\shop.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:158735143863e64a3bdc7174-56090366%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'db9f58ab5dc2cd29f2df80ae271105c8d50b97e0' => 
+    array (
+      0 => '.\\templates\\shop.tpl',
+      1 => 1675953634,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '158735143863e64a3bdc7174-56090366',
+  'function' => 
+  array (
+  ),
+  'variables' => 
+  array (
+    'brandslist' => 0,
+    'categorieslist' => 0,
+    'storeslist' => 0,
+    'productslist' => 0,
+  ),
+  'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_63e64a3bded160_64238489',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_63e64a3bded160_64238489')) {function content_63e64a3bded160_64238489($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 
-{include file="head.tpl"}
+<?php echo $_smarty_tpl->getSubTemplate ("head.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
 
 <body>
     <div class="page-holder">
         <!-- navbar-->
-        {include file="header.tpl"}
+        <?php echo $_smarty_tpl->getSubTemplate ("header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
         <!--  Modal -->
 
         <div class="container">
@@ -38,17 +68,20 @@
                                     class="small text-uppercase fw-bold">Brands</strong></div>
                             <ul class="list-unstyled small text-muted ps-lg-4 font-weight-normal">
                                 <!-- Use this to load the brands , categories, and stores from the database -  <li class="mb-2"><a class="reset-anchor" href="#!">Women's T-Shirts</a></li>-->
-                                {$brandslist}
+                                <?php echo $_smarty_tpl->tpl_vars['brandslist']->value;?>
+
                             </ul>
                             <div class="py-2 px-4 bg-light mb-3"><strong
                                     class="small text-uppercase fw-bold">Categories</strong></div>
                             <ul class="list-unstyled small text-muted ps-lg-4 font-weight-normal">
-                                {$categorieslist}
+                                <?php echo $_smarty_tpl->tpl_vars['categorieslist']->value;?>
+
                             </ul>
                             <div class="py-2 px-4 bg-light mb-3"><strong
                                     class="small text-uppercase fw-bold">Stores</strong></div>
                             <ul class="list-unstyled small text-muted ps-lg-4 font-weight-normal mb-5">
-                                {$storeslist}
+                                <?php echo $_smarty_tpl->tpl_vars['storeslist']->value;?>
+
                             </ul>
                             <h6 class="text-uppercase mb-4">Price range</h6>
                             <div class="price-range pt-4 mb-5">
@@ -116,7 +149,8 @@
                                 </div>-->
                                 <!-- PRODUCT-->
 
-                                {$productslist}
+                                <?php echo $_smarty_tpl->tpl_vars['productslist']->value;?>
+
 
 
 
@@ -141,7 +175,8 @@
         </div>
 
 
-        {include file="footer.tpl"}
+        <?php echo $_smarty_tpl->getSubTemplate ("footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
     </div>
 </body>
 
@@ -149,3 +184,4 @@
 </html>
 
     
+<?php }} ?>
