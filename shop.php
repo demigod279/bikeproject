@@ -71,6 +71,8 @@ $result = "";
 //select from the database the name of the stores-- INSERT THE BRAND NAME BELOW
 //$smarty->assign("storeslist", "<li class='mb-2'><a class='reset-anchor' href='#!'>STORENAME</a></li>");
 
+
+
 $tsql = "select store_id, store_name from sales.stores order by store_name ";
 //echo "sql: ".$tsql;
 
@@ -99,35 +101,26 @@ $result = "";
 
 
 //select from the database the name of the PRODUCTS-- INSERT THE BRAND NAME BELOW
-$smarty->assign("productslist", '<div class="col-lg-4 col-sm-6">
-                                <div class="product text-center">
-                                    <div class="mb-3 position-relative">
-                                        <div class="badge text-white bg-"></div><a class="d-block"
-                                            href="detail.html"><img class="img-fluid w-100"
-                                                src="images\bike1.jpg"
-                                                alt="..."></a>
-                                        <div class="product-overlay">
-                                            <ul class="mb-0 list-inline">
-                                                <li class="list-inline-item m-0 p-0"><a
-                                                        class="btn btn-sm btn-outline-dark" href="#!"><i
-                                                            class="far fa-heart"></i></a></li>
-                                                <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark"
-                                                        href="cart.html">Add to cart</a></li>
-                                                <li class="list-inline-item mr-0"><a
-                                                        class="btn btn-sm btn-outline-dark" href="#productView"
-                                                        data-bs-toggle="modal"><i class="fas fa-expand"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <h6> <a class="reset-anchor" href="detail.html">BIKENAME</a></h6>
-                                    <p class="small text-muted">$0.00</p>
-                                </div>
-                            </div>');
+if( $_GET['brand_id'] != '' ){
+    $tsql = "select product_id, product_name, list_price, image from production.products where brand_id = ".$_GET['brand_id'] ." order by product_name";
+}
+else if ( $_GET['category_id'] != ''){
+    $tsql = "select product_id, product_name, list_price, image from production.products where category_id = ".$_GET['category_id'] ." order by product_name";
+}
+else if ( $_GET['store_id'] != ''){
+    $tsql = "select p.product_id, p.product_name, p.list_price, p.image 
+    from production.products p 
+    where (select count(*) from production.stocks s 
+    where s.store_id = ".$_GET['store_id'] . " and s.quantity > 0 and s.product_id = p.product_id ) > 0 
+    order by product_name";
+}
+else{
+    $tsql = "select product_id, product_name, list_price, image from production.products  order by product_name";
+}
 
 
-                            $tsql = "select top 9 product_id, product_name from production.product order by product_name ";
-                            //echo "sql: ".$tsql;
+
+                            
                             
                             
                             $conn = sqlsrv_connect($global_serverName, $global_connectionInfo);
@@ -139,8 +132,35 @@ $smarty->assign("productslist", '<div class="col-lg-4 col-sm-6">
                             
                               $product_id = $row[0];
                               $product_name = $row[1];
-                                       
-                                $result = $result."<li class='mb-2'><a class='reset-anchor' href='shop.php?product_id=$product_id'>$product_name</a></li>";
+                              $list_price = $row[2];
+                              $image = $row[3];
+                                      
+                              $name = 'elijah\'s';
+                                $result = $result.'<div class="col-lg-4 col-sm-6">
+                                <div class="product text-center">
+                                    <div class="mb-3 position-relative">
+                                        <div class="badge text-white bg-"></div><a class="d-block"
+                                            href="detail.php?product_id"><img class="img-fluid w-100"
+                                                src="images/'.$image.'"
+                                                alt="..."></a>
+                                        <div class="product-overlay">
+                                            <ul class="mb-0 list-inline">
+                                                <li class="list-inline-item m-0 p-0"><a
+                                                        class="btn btn-sm btn-outline-dark" href="#!"><i
+                                                            class="far fa-heart"></i></a></li>
+                                                <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark"
+                                                        href="cart.php">Add to cart</a></li>
+                                                <li class="list-inline-item mr-0"><a
+                                                        class="btn btn-sm btn-outline-dark" href="#productView"
+                                                        data-bs-toggle="modal"><i class="fas fa-expand"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <h6> <a class="reset-anchor" href="detail.php?product_id = '.$product_id.'">'.$product_name.'</a></h6>
+                                    <p class="small text-muted">'.$list_price.'</p>
+                                </div>
+                            </div>';
                                 
                                     
                             
@@ -148,33 +168,9 @@ $smarty->assign("productslist", '<div class="col-lg-4 col-sm-6">
                             
                              
                              sqlsrv_free_stmt($stmt);    
+
                             
-                            
-                             $smarty->assign("productslist",  $result.'<div class="col-lg-4 col-sm-6">
-                             <div class="product text-center">
-                                 <div class="mb-3 position-relative">
-                                     <div class="badge text-white bg-"></div><a class="d-block"
-                                         href="detail.html"><img class="img-fluid w-100"
-                                             src="images\bike1.jpg"
-                                             alt="..."></a>
-                                     <div class="product-overlay">
-                                         <ul class="mb-0 list-inline">
-                                             <li class="list-inline-item m-0 p-0"><a
-                                                     class="btn btn-sm btn-outline-dark" href="#!"><i
-                                                         class="far fa-heart"></i></a></li>
-                                             <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark"
-                                                     href="cart.html">Add to cart</a></li>
-                                             <li class="list-inline-item mr-0"><a
-                                                     class="btn btn-sm btn-outline-dark" href="#productView"
-                                                     data-bs-toggle="modal"><i class="fas fa-expand"></i></a>
-                                             </li>
-                                         </ul>
-                                     </div>
-                                 </div>
-                                 <h6> <a class="reset-anchor" href="detail.html">BIKENAME</a></h6>
-                                 <p class="small text-muted">$0.00</p>
-                             </div>
-                         </div>' );
+                             $smarty->assign("productslist",  $result);
                             
 
 

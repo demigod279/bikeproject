@@ -1,12 +1,35 @@
-<!DOCTYPE html>
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2023-02-14 06:47:46
+         compiled from ".\templates\detail.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:189360804463eb9f121d07a4-26766454%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'cb91c771222e6fd61afde9f5c9690851ed95a1f4' => 
+    array (
+      0 => '.\\templates\\detail.tpl',
+      1 => 1676386064,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '189360804463eb9f121d07a4-26766454',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_63eb9f121e7568_72069135',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_63eb9f121e7568_72069135')) {function content_63eb9f121e7568_72069135($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 
-{include file="head.tpl"}
+<?php echo $_smarty_tpl->getSubTemplate ("head.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
 
 <body>
     <div class="page-holder">
         <!-- navbar-->
-        {include file="header.tpl"}
+        <?php echo $_smarty_tpl->getSubTemplate ("header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
         <!--  Modal -->
 
         <div class="modal fade" id="productView" tabindex="-1">
@@ -344,9 +367,11 @@
             </div>
         </div>
     </section>
+    </div>
 
 
-        {include file="footer.tpl"}
+        <?php echo $_smarty_tpl->getSubTemplate ("footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
     </div>
 </body>
 
@@ -354,3 +379,4 @@
 </html>
 
     
+<?php }} ?>
