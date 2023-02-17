@@ -1,25 +1,46 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2023-02-14 06:27:31
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2023-02-17 05:46:50
          compiled from ".\templates\profile.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:183069395763eb9a53aebac7-31163022%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:194456987363ef854a909491-58482881%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '59fb60ee59c62d1cc2866cb559f2d69baa46e7ee' => 
     array (
       0 => '.\\templates\\profile.tpl',
-      1 => 1676384583,
+      1 => 1676560462,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '183069395763eb9a53aebac7-31163022',
+  'nocache_hash' => '194456987363ef854a909491-58482881',
   'function' => 
   array (
   ),
+  'variables' => 
+  array (
+    'first_name' => 0,
+    'last_name' => 0,
+    'email' => 0,
+    'phone' => 0,
+    'company_name' => 0,
+    'street' => 0,
+    'street2' => 0,
+    'city' => 0,
+    'state' => 0,
+    'alt_first_name' => 0,
+    'alt_last_name' => 0,
+    'alt_phone' => 0,
+    'alt_company_name' => 0,
+    'alt_street' => 0,
+    'alt_street2' => 0,
+    'alt_city' => 0,
+    'alt_state' => 0,
+    'customer_id' => 0,
+  ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_63eb9a53b029b8_26888921',
+  'unifunc' => 'content_63ef854a92efd4_19821805',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_63eb9a53b029b8_26888921')) {function content_63eb9a53b029b8_26888921($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_63ef854a92efd4_19821805')) {function content_63ef854a92efd4_19821805($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 
 <?php echo $_smarty_tpl->getSubTemplate ("head.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
@@ -55,40 +76,40 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </section>
         <section class="py-5">
             <!-- Shipping ADDRESS-->
-            <h2 class="h5 text-uppercase mb-4">Shipping details</h2>
+            <h2 class="h5 text-uppercase mb-4">Billing details</h2>
             <div class="row">
                 <div class="col-lg-8">
-                    <form action="#">
+                    <form action="profile.php" method="POST">
                         <div class="row gy-3">
                             <div class="col-lg-6">
                                 <label class="form-label text-sm text-uppercase" for="firstName">First name
                                 </label>
-                                <input class="form-control form-control-lg" type="text" id="firstName"
-                                    placeholder="Enter your first name">
+                                <?php echo $_smarty_tpl->tpl_vars['first_name']->value;?>
+
                             </div>
                             <div class="col-lg-6">
                                 <label class="form-label text-sm text-uppercase" for="lastName">Last name
                                 </label>
-                                <input class="form-control form-control-lg" type="text" id="lastName"
-                                    placeholder="Enter your last name">
+                                <?php echo $_smarty_tpl->tpl_vars['last_name']->value;?>
+
                             </div>
                             <div class="col-lg-6">
                                 <label class="form-label text-sm text-uppercase" for="email">Email address
                                 </label>
-                                <input class="form-control form-control-lg" type="email" id="email"
-                                    placeholder="e.g. Jason@example.com">
+                                <?php echo $_smarty_tpl->tpl_vars['email']->value;?>
+
                             </div>
                             <div class="col-lg-6">
                                 <label class="form-label text-sm text-uppercase" for="phone">Phone number
                                 </label>
-                                <input class="form-control form-control-lg" type="tel" id="phone"
-                                    placeholder="e.g. +02 245354745">
+                                <?php echo $_smarty_tpl->tpl_vars['phone']->value;?>
+
                             </div>
                             <div class="col-lg-6">
                                 <label class="form-label text-sm text-uppercase" for="company">Company name
                                     (optional) </label>
-                                <input class="form-control form-control-lg" type="text" id="company"
-                                    placeholder="Your company name">
+                                <?php echo $_smarty_tpl->tpl_vars['company_name']->value;?>
+
                             </div>
                             <div class="col-lg-6 form-group">
                                 <label class="form-label text-sm text-uppercase" for="country">Country</label>
@@ -100,23 +121,25 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                             <div class="col-lg-12">
                                 <label class="form-label text-sm text-uppercase" for="address">Address line 1
                                 </label>
-                                <input class="form-control form-control-lg" type="text" id="address"
-                                    placeholder="House number and street name">
+                                <?php echo $_smarty_tpl->tpl_vars['street']->value;?>
+
                             </div>
                             <div class="col-lg-12">
                                 <label class="form-label text-sm text-uppercase" for="addressalt">Address line 2
                                 </label>
-                                <input class="form-control form-control-lg" type="text" id="addressalt"
-                                    placeholder="Apartment, Suite, Unit, etc (optional)">
+                                <?php echo $_smarty_tpl->tpl_vars['street2']->value;?>
+
                             </div>
                             <div class="col-lg-6">
                                 <label class="form-label text-sm text-uppercase" for="city">Town/City </label>
-                                <input class="form-control form-control-lg" type="text" id="city">
+                                <?php echo $_smarty_tpl->tpl_vars['city']->value;?>
+
                             </div>
                             <div class="col-lg-6">
                                 <label class="form-label text-sm text-uppercase" for="state">State/County
                                 </label>
-                                <input class="form-control form-control-lg" type="text" id="state">
+                                <?php echo $_smarty_tpl->tpl_vars['state']->value;?>
+
                             </div>
                             <div class="col-lg-6">
                                 <button class="btn btn-link text-dark p-0 shadow-0" type="button"
@@ -135,79 +158,91 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                                         <h2 class="h4 text-uppercase mb-4">Alternative Shipping details</h2>
                                     </div>
                                     <div class="col-lg-6">
-                                        <label class="form-label text-sm text-uppercase" for="firstName2">First
-                                            name
-                                        </label>
-                                        <input class="form-control form-control-lg" type="text" id="firstName2"
-                                            placeholder="Enter your first name">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <label class="form-label text-sm text-uppercase" for="lastName2">Last
-                                            name
-                                        </label>
-                                        <input class="form-control form-control-lg" type="text" id="lastName2"
-                                            placeholder="Enter your last name">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <label class="form-label text-sm text-uppercase" for="email2">Email
-                                            address
-                                        </label>
-                                        <input class="form-control form-control-lg" type="email" id="email2"
-                                            placeholder="e.g. Jason@example.com">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <label class="form-label text-sm text-uppercase" for="phone2">Phone
-                                            number
-                                        </label>
-                                        <input class="form-control form-control-lg" type="tel" id="phone2"
-                                            placeholder="e.g. +02 245354745">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <label class="form-label text-sm text-uppercase" for="company2">Company
-                                            name
-                                            (optional) </label>
-                                        <input class="form-control form-control-lg" type="text" id="company2"
-                                            placeholder="Your company name">
-                                    </div>
-                                    <div class="col-lg-6 form-group">
-                                        <label class="form-label text-sm text-uppercase"
-                                            for="countryAlt">Country</label>
-                                        <select class="country" id="countryAlt"
-                                            data-customclass="form-control form-control-lg rounded-0">
-                                            <option value>Choose your country</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <label class="form-label text-sm text-uppercase" for="address2">Address
-                                            line
-                                            1 </label>
-                                        <input class="form-control form-control-lg" type="text" id="address2"
-                                            placeholder="House number and street name">
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <label class="form-label text-sm text-uppercase"
-                                            for="addressalt2">Address
-                                            line 2 </label>
-                                        <input class="form-control form-control-lg" type="text" id="addressalt2"
-                                            placeholder="Apartment, Suite, Unit, etc (optional)">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <label class="form-label text-sm text-uppercase" for="city2">Town/City
-                                        </label>
-                                        <input class="form-control form-control-lg" type="text" id="city2">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <label class="form-label text-sm text-uppercase"
-                                            for="state2">State/County
-                                        </label>
-                                        <input class="form-control form-control-lg" type="text" id="state2">
-                                    </div>
+                                <label class="form-label text-sm text-uppercase" for="firstName">First name
+                                </label>
+                                <?php echo $_smarty_tpl->tpl_vars['alt_first_name']->value;?>
+
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="form-label text-sm text-uppercase" for="lastName">Last name
+                                </label>
+                                <?php echo $_smarty_tpl->tpl_vars['alt_last_name']->value;?>
+
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="form-label text-sm text-uppercase" for="email">Email address
+                                </label>
+                                <?php echo $_smarty_tpl->tpl_vars['email']->value;?>
+
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="form-label text-sm text-uppercase" for="phone">Phone number
+                                </label>
+                                <?php echo $_smarty_tpl->tpl_vars['alt_phone']->value;?>
+
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="form-label text-sm text-uppercase" for="company">Company name
+                                    (optional) </label>
+                                <?php echo $_smarty_tpl->tpl_vars['alt_company_name']->value;?>
+
+                            </div>
+                            <div class="col-lg-6 form-group">
+                                <label class="form-label text-sm text-uppercase" for="country">Country</label>
+                                <select class="country" id="country"
+                                    data-customclass="form-control form-control-lg rounded-0">
+                                    <option value>Choose your country</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-12">
+                                <label class="form-label text-sm text-uppercase" for="address">Address line 1
+                                </label>
+                                <?php echo $_smarty_tpl->tpl_vars['alt_street']->value;?>
+
+                            </div>
+                            <div class="col-lg-12">
+                                <label class="form-label text-sm text-uppercase" for="addressalt">Address line 2
+                                </label>
+                                <?php echo $_smarty_tpl->tpl_vars['alt_street2']->value;?>
+
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="form-label text-sm text-uppercase" for="city">Town/City </label>
+                                <?php echo $_smarty_tpl->tpl_vars['alt_city']->value;?>
+
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="form-label text-sm text-uppercase" for="state">State/County
+                                </label>
+                                <?php echo $_smarty_tpl->tpl_vars['alt_state']->value;?>
+
+                            </div>
                                 </div>
                             </div>
                             <div class="col-lg-12 form-group">
                                 <button class="btn btn-dark" type="submit">Place order</button>
                             </div>
+                            
+    <input type="hidden" value="<?php echo $_smarty_tpl->tpl_vars['customer_id']->value;?>
+" id="customer_id" name="customer_id" />
+
+
+
+    <div class="text-center">
+        <button type="submit" value="Save" id="save" name="save"
+            class="btn btn-primary">Save Changes</button>    
+
+        <a class="btn btn-secondary"
+            href="profile.php?remove=true&customer_id=<?php echo $_smarty_tpl->tpl_vars['customer_id']->value;?>
+"
+            role="button">Remove
+        </a>
+    </div>
+
+
+
                         </div>
+                        
                     </form>
                 </div>
 

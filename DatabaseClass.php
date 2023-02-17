@@ -1,14 +1,13 @@
 <?php
 
 
-
 class DatabaseClass
 {
 
   
     public  $connection;
     public  $stmt;
-    public  string $sql;
+    public  $sql;
     public  $row;
     public  $fieldArray;
     public  $currentrow;
@@ -21,16 +20,15 @@ class DatabaseClass
 
     public $uploadpath = "";
 
-    public function __construct($tableparam,$debug=false)
+    public function __construct($tableparam,$debug=false,$serverName,$connectioninfo)
     {
-        include('databaseclassconfig.php');
-
+    
         $this->debug = $debug;
 
         $this->table = $tableparam;
         $this->mode = "edit";  //add , insert, delete, edit
 
-        $this->connection = sqlsrv_connect($global_serverName, $global_connectionInfo);
+        $this->connection = sqlsrv_connect($serverName, $connectioninfo);
     }
 
     // Select a row/s in a Database Table
@@ -65,6 +63,9 @@ class DatabaseClass
         foreach ($fieldmeta as $f) {
 
             $this->fieldArray[] = $f['Name'];
+
+
+           // echo "Field: ".$f['Name'];
         }
 
         $this->primekeyvalue = $this->getFieldByColumnName($this->primekeycolumn);
@@ -78,7 +79,7 @@ class DatabaseClass
     {
 
         $execsql = "DELETE FROM " . $this->table . " WHERE " . $this->primekeycolumn . " = '" . $keyvalue . "'";
-        //echo "<br><Br><br>............................" . $execsql;
+        echo "<br><Br><br>............................" . $execsql;
 
         $stmtexec = sqlsrv_query($this->connection, $execsql);
 
@@ -139,7 +140,7 @@ class DatabaseClass
 
                     if( StrPos($strname,"_") == true)
                     {
-                        $strcolumnname = trim(explode('_', $strname, 2)[1]);
+                        $strcolumnname = trim(explode('~', $strname, 2)[1]);
                     }
                     else
                     {
@@ -181,7 +182,7 @@ class DatabaseClass
 
                     if( StrPos($strname,"_") == true)
                     {
-                        $strcolumnname = trim(explode('_', $strname, 2)[1]);
+                        $strcolumnname = trim(explode('~', $strname, 2)[1]);
                     }
                     else
                     {
@@ -209,6 +210,54 @@ class DatabaseClass
     }
 
 
+
+
+
+public function getFormPlainTextEditareaFieldByColumnName($strname)
+    {
+
+        if (strtolower($this->mode) == "add") {
+
+            return   '<textarea name= "' . $strname . '"  style="width: 90%; height: 200px;
+                 padding: 10px; border:3px dashed indigo;" id="' . $strname . '" ></textarea>';
+        }
+        else
+        {
+                if ($this->hasrows === true) {
+
+                    $strcolumnname = "";
+
+                    if( StrPos($strname,"_") == true)
+                    {
+                        $strcolumnname = trim(explode('~', $strname, 2)[1]);
+                    }
+                    else
+                    {
+                
+                        $strcolumnname =  $strname;
+                    }
+
+                    $index = array_search($strcolumnname, $this->fieldArray);
+
+                    //echo "<br><Br><br>.................".$strcolumnname."---".$index;
+
+                    if ($index === false) {
+                        //echo "[ERROR - NO FIELD NAME: ".$strname."]";  
+                        return "[" . $strname . "]";
+                    } else {
+
+                        return   '<textarea name="' . $strname . '" style="width: 90%; height: 200px;
+                 padding: 10px; border:3px dashed indigo;" id="' . $strname . '"
+                                                            >' . $this->row[$index] . '</textarea>';
+                    }
+                } else {
+
+                    return "";
+                }
+            }
+    }
+
+
     public function getFormTextareaFieldByColumnName($strname)
     {
 
@@ -224,7 +273,7 @@ class DatabaseClass
            
                     if( StrPos($strname,"_") == true)
                     {
-                        $strcolumnname = trim(explode('_', $strname, 2)[1]);
+                        $strcolumnname = trim(explode('~', $strname, 2)[1]);
                     }
                     else
                     {
@@ -273,7 +322,7 @@ public function guid2(){
         if (strtolower($this->mode) == "add") {
                                if( StrPos($strname,"_") == true)
                     {
-                        $strcolumnname = trim(explode('_', $strname, 2)[1]);
+                        $strcolumnname = trim(explode('~', $strname, 2)[1]);
                     }
                     else
                     {
@@ -309,9 +358,9 @@ public function guid2(){
         } else {
             
 
-                                 if( StrPos($strname,"_") == true)
+                                 if( StrPos($strname,"~") == true)
                     {
-                        $strcolumnname = trim(explode('_', $strname, 2)[1]);
+                        $strcolumnname = trim(explode('~', $strname, 2)[1]);
                     }
                     else
                     {
@@ -391,7 +440,7 @@ public function guid2(){
         {
                 if ($this->hasrows === true) {
 
-                    $strcolumnname = explode('_', $strname, 2)[1];
+                    $strcolumnname = explode('~', $strname, 2)[1];
                     if ($strcolumnname == "")
                          $strcolumnname = $strname;
 
@@ -433,7 +482,7 @@ public function guid2(){
     public function isfield($strname)
     {
 
-        $strcolumnname = explode('_', $strname, 2)[1];
+        $strcolumnname = explode('~', $strname, 2)[1];
         if ($strcolumnname == "")
             $strcolumnname = $strname;
 
@@ -452,7 +501,7 @@ public function guid2(){
         if ($this->hasrows === true) {
 
 
-            $strcolumnname = explode('_', $strname, 2)[1];
+            $strcolumnname = explode('~', $strname, 2)[1];
             if ($strcolumnname == "")
                 $strcolumnname = $strname;
 
@@ -506,7 +555,7 @@ public function guid2(){
             {
 
 
-                    $strcolumnname = explode('_', $strname, 2)[1];
+                    $strcolumnname = explode('~', $strname, 2)[1];
                     if ($strcolumnname == "")
                         $strcolumnname = $strname;
 
@@ -518,7 +567,7 @@ public function guid2(){
 
                     if ($index === false) 
                     {
-                    // echo "[ERROR - NO FIELD NAME: " . $strname . "]";
+                     echo "[ERROR - NO FIELD NAME: " . $strname . "]";
                         return "[" . $strname . "]";
                     } else {
 
@@ -788,11 +837,7 @@ public function getFormOptionTextFieldByColumnName($strname, $SelectedValue,$tab
     }
 
 
-
-
-
-
-    public function getFormOptionFieldByColumnName($strname, $SelectedValue, $sql)
+    public function getSearchFilter($strname, $SelectedValue, $sql,$url,$teacherno,$operation,$value)
     {
 
         if (strtolower($this->mode) == "add") {
@@ -819,12 +864,13 @@ public function getFormOptionTextFieldByColumnName($strname, $SelectedValue,$tab
             $strOptionList = $strOptionList . '</select>';
         } else {
 
- //echo "<Br><Br><br>.................." . $sql;
+            //echo "<Br><Br><br>.................." . $sql;
 
             $strOptionList = ' <select class="form-select" name="' . $strname . '"  id="' . $strname . '" aria-label="Default select example">';
             $stmttemp = sqlsrv_query($this->connection, $sql);
 
-            if ($stmttemp) {
+            if ($stmttemp) 
+            {
                 while ($rowc = sqlsrv_fetch_array($stmttemp, SQLSRV_FETCH_NUMERIC)) {
 
                     if ( trim($SelectedValue) == trim($rowc[0]))
@@ -843,6 +889,126 @@ public function getFormOptionTextFieldByColumnName($strname, $SelectedValue,$tab
             $strOptionList = $strOptionList . '</select>';
         }
 
+        $stroperation = "<select class='form-select' name='fieldoperation'  id='fieldoperation' aria-label='Default select example'>";
+
+                if($operation == "EQUAL")
+                       $stroperation = $stroperation."<option selected value='EQUAL'>EQUAL</option>";
+                else
+                      $stroperation = $stroperation."<option value='EQUAL'>EQUAL</option>";
+                
+                if($operation == "NOTEQUAL")
+                        $stroperation = $stroperation."<option  selected value='NOTEQUAL'>NOT EQUAL</option>";
+                else
+                        $stroperation = $stroperation."<option value='NOTEQUAL'>NOT EQUAL</option>";
+
+                if($operation == "LIKE")
+                {
+                    $stroperation = $stroperation."<option  selected value='LIKE'>CONTAINS</option>";
+
+                    $value = str_replace("%","",$value);
+
+                }
+                else
+                    $stroperation = $stroperation."<option value='LIKE'>CONTAINS</option>";
+
+                if($operation == "GREATER")
+                        $stroperation = $stroperation."<option selected value='GREATER'>GREATER THAN</option>";
+                else    
+                        $stroperation = $stroperation."<option value='GREATER'>GREATER THAN</option>";
+
+               
+                if($operation == "LESS")
+                    $stroperation = $stroperation."<option selected value='LESS'>LESS THAN</option>";
+                else
+                    $stroperation = $stroperation."<option value='LESS'>LESS THAN</option>";
+
+
+                $stroperation = $stroperation."</select>";
+
+
+
+            $strfiltertable = '
+                    <form action="'.$url.'">
+                    <table>
+                    <tr>
+                        <th>'.$strOptionList.'</th>
+                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$stroperation.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                        <th><input class="form-control" type="text" id="fieldvalue" name="fieldvalue" value="'.$value.'"></th>
+                    </tr>
+                    </table>
+                    <br>
+                    <input type="hidden" id="teacherno" name="teacherno" value="'.$teacherno.'">
+                    <button type="submit" value="search" id="search" name="search" class="btn btn-primary">Apply Filter</button>
+                    </form>';
+
+
+        return  $strfiltertable;
+    }
+
+
+
+
+    public function getFormOptionFieldByColumnName($strname, $SelectedValue, $sql,$disabled = false)
+    {
+
+
+        $selectedstringvalue = "";
+
+        if (strtolower($this->mode) == "add") {
+
+            $strOptionList = ' <select class="form-select" name="' . $strname . '"  id="' . $strname . '" aria-label="Default select example">';
+            $stmttemp = sqlsrv_query($this->connection, $sql);
+
+           
+
+            if ($stmttemp) {
+                while ($rowc = sqlsrv_fetch_array($stmttemp, SQLSRV_FETCH_NUMERIC)) {
+
+                    if ( trim($SelectedValue) == trim($rowc[0]))
+                        $strOptionList = $strOptionList . '<option selected value="' . $rowc[0] . '">' . $rowc[1] . '</option>';
+                    else
+                        $strOptionList = $strOptionList . '<option value="' . $rowc[0] . '">' . $rowc[1] . '</option>';
+                }
+                sqlsrv_free_stmt($stmttemp);
+            }
+
+
+            $strOptionList = $strOptionList . '<option value="SELECT">SELECT</option>';
+
+            $strOptionList = $strOptionList . '</select>';
+        } else {
+
+ //echo "<Br><Br><br>.................." . $sql;
+    
+         $strOptionList = ' <select class="form-select" name="' . $strname . '"  id="' . $strname . '" aria-label="Default select example">';
+
+            $stmttemp = sqlsrv_query($this->connection, $sql);
+
+            if ($stmttemp) {
+                while ($rowc = sqlsrv_fetch_array($stmttemp, SQLSRV_FETCH_NUMERIC)) {
+
+                    if ( trim($SelectedValue) == trim($rowc[0]))
+                    {
+                        $strOptionList = $strOptionList . '<option selected value="' . $rowc[0] . '">' . $rowc[1] . '</option>';
+                        $selectedstringvalue =  $rowc[1];
+                    }    
+                    else
+                        $strOptionList = $strOptionList . '<option value="' . $rowc[0] . '">' . $rowc[1] . '</option>';
+                }
+                sqlsrv_free_stmt($stmttemp);
+            }
+
+            if( $SelectedValue == "SELECT"  || $SelectedValue == "")
+                $strOptionList = $strOptionList . '<option selected value="SELECT">SELECT</option>';
+            else
+                $strOptionList = $strOptionList . '<option value="SELECT">SELECT</option>';
+
+            $strOptionList = $strOptionList . '</select>';
+        }
+
+
+         if( $disabled == true)
+          $strOptionList =   '<label for="fullName" class="col-form-label"><b>'.$selectedstringvalue.'</b></label>';
 
         return  $strOptionList;
     }
@@ -1092,7 +1258,14 @@ public function getFormOptionTextFieldByColumnName($strname, $SelectedValue,$tab
       
                     if ($ifield == 0 && $linkurl != "") {
                         $strtable = $strtable . '<td><a href="' . $linkurl . $strsymbol . $this->primekeycolumn . '=' . $this->getFieldByColumnName($this->primekeycolumn) . '">'.$linklable.'</a> </td>';
-                    } else {
+                    } 
+                    elseif (str_contains($field , '***'))
+                    {
+                        $field  = str_replace("***",$this->getFieldByColumnName($this->primekeycolumn),$field);
+                        $strtable = $strtable . '<td>' . $this->getFieldByColumnName($field) . '</td>';
+                    }   
+                    else 
+                    {
                         $strtable = $strtable . '<td>' . $this->getFieldByColumnName($field) . '</td>';
                     }
                     $ifield  = $ifield + 1;
@@ -1309,7 +1482,7 @@ public function getFormOptionTextFieldByColumnName($strname, $SelectedValue,$tab
 
         $execsql = "insert into " . $this->table . " (" . $insertcolumns . ") values (" . $insertvalues . ")";
         
-        echo "<br><Br><Br>............" . $execsql;
+        //echo "<br><Br><Br>............" . $execsql;
         $result = sqlsrv_query($this->connection, $execsql);
         // echo "<br><Br><Br>............" . $execsql;
 
@@ -1373,10 +1546,9 @@ public function getFormOptionTextFieldByColumnName($strname, $SelectedValue,$tab
         foreach ($array as $field) {
 
 
-//echo "<br><Br><br>.................." . $field; 
 
             if ($tab != "") {
-                $lowerfield = strtolower($tab . "_" . $field);
+                $lowerfield = strtolower($tab . "~" . $field);
             } else {
                 $lowerfield = strtolower($field);
             }
@@ -1427,14 +1599,8 @@ public function getFormOptionTextFieldByColumnName($strname, $SelectedValue,$tab
             if (isset($_POST[$lowerfield]) || $value != "") {
 
 
-               // if ($lowerfield == "password"  || $lowerfield == "schoolno"  && $value == "") {
-
-
-                    //skip not allowed to save blank passwords
-                //} else {
-
+              
                     if ($field != $this->primekeycolumn) {
-
 
                         if (strtolower($field)  == "phone") {
                             $value = $this->formatting($value);

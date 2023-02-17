@@ -1,25 +1,25 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2023-02-14 06:42:51
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2023-02-15 06:54:08
          compiled from ".\templates\checkout.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:189084021463eb9debafc7a4-56132298%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:144490667163ecf210e37011-77038811%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a1489e51327453a85f41c60ff4f83c588d252956' => 
     array (
       0 => '.\\templates\\checkout.tpl',
-      1 => 1676385099,
+      1 => 1676472847,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '189084021463eb9debafc7a4-56132298',
+  'nocache_hash' => '144490667163ecf210e37011-77038811',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_63eb9debb11f54_57245766',
+  'unifunc' => 'content_63ecf210e4c6b1_60097161',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_63eb9debb11f54_57245766')) {function content_63eb9debb11f54_57245766($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_63ecf210e4c6b1_60097161')) {function content_63ecf210e4c6b1_60097161($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 
 <?php echo $_smarty_tpl->getSubTemplate ("head.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
@@ -111,8 +111,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </div>
             </section>
             <section class="py-5">
-                <!-- BILLING ADDRESS-->
-                <h2 class="h5 text-uppercase mb-4">Billing details</h2>
+                <!-- shipping ADDRESS-->
+                <h2 class="h5 text-uppercase mb-4">shipping details</h2>
                 <div class="row">
                     <div class="col-lg-8">
                         <form action="#">
@@ -177,14 +177,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                                             <input class="form-check-input" id="alternateAddressCheckbox"
                                                 type="checkbox">
                                             <label class="form-check-label" for="alternateAddressCheckbox">Alternate
-                                                billing address</label>
+                                                shipping address</label>
                                         </div>
                                     </button>
                                 </div>
                                 <div class="collapse" id="alternateAddress">
                                     <div class="row gy-3">
                                         <div class="col-12 mt-4">
-                                            <h2 class="h4 text-uppercase mb-4">Alternative billing details</h2>
+                                            <h2 class="h4 text-uppercase mb-4">Alternative shipping details</h2>
                                         </div>
                                         <div class="col-lg-6">
                                             <label class="form-label text-sm text-uppercase" for="firstName2">First name

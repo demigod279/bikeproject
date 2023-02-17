@@ -89,8 +89,8 @@
                 </div>
             </section>
             <section class="py-5">
-                <!-- BILLING ADDRESS-->
-                <h2 class="h5 text-uppercase mb-4">Billing details</h2>
+                <!-- shipping ADDRESS-->
+                <h2 class="h5 text-uppercase mb-4">shipping details</h2>
                 <div class="row">
                     <div class="col-lg-8">
                         <form action="#">
@@ -155,14 +155,14 @@
                                             <input class="form-check-input" id="alternateAddressCheckbox"
                                                 type="checkbox">
                                             <label class="form-check-label" for="alternateAddressCheckbox">Alternate
-                                                billing address</label>
+                                                shipping address</label>
                                         </div>
                                     </button>
                                 </div>
                                 <div class="collapse" id="alternateAddress">
                                     <div class="row gy-3">
                                         <div class="col-12 mt-4">
-                                            <h2 class="h4 text-uppercase mb-4">Alternative billing details</h2>
+                                            <h2 class="h4 text-uppercase mb-4">Alternative shipping details</h2>
                                         </div>
                                         <div class="col-lg-6">
                                             <label class="form-label text-sm text-uppercase" for="firstName2">First name
