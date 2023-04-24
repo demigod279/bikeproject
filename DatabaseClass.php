@@ -1259,7 +1259,7 @@ public function getFormOptionTextFieldByColumnName($strname, $SelectedValue,$tab
                     if ($ifield == 0 && $linkurl != "") {
                         $strtable = $strtable . '<td><a href="' . $linkurl . $strsymbol . $this->primekeycolumn . '=' . $this->getFieldByColumnName($this->primekeycolumn) . '">'.$linklable.'</a> </td>';
                     } 
-                    elseif (str_contains($field , '***'))
+                    elseif (stripos($field , '***') > -1)
                     {
                         $field  = str_replace("***",$this->getFieldByColumnName($this->primekeycolumn),$field);
                         $strtable = $strtable . '<td>' . $this->getFieldByColumnName($field) . '</td>';

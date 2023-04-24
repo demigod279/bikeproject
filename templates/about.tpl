@@ -53,7 +53,9 @@
     </div>
 </body>
 
-
+<script>
+spray();
+</script>
 </html>
 
     

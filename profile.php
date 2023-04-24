@@ -15,7 +15,7 @@ $db->mode = "edit";
 
 $username = $_SESSION["username"];
 
-$tsql = "select customer_id,first_name,last_name, email,street,street2,company_name,city,state,phone,alt_first_name,alt_last_name, alt_email,alt_street,alt_street2,alt_company_name,alt_city,alt_state,alt_phone from sales.customers where email = '" . $username . "'";
+$tsql = "select customer_id,first_name,last_name, email,street,street2,company_name,city,state,phone,alt_first_name,alt_last_name, alt_email,alt_street,alt_street2,alt_company_name,alt_city,alt_state,alt_phone,country,shipping_country from sales.customers where email = '" . $username . "'";
 
 if ($db->Select($tsql, "customer_id") === false) {
     $db->closeConnection();
@@ -41,7 +41,7 @@ if ( $_POST['save'] == "Save" ) {
 
     //echo "Type: Save";
     
-    $db->updateRow(['first_name','last_name','street','street2','city','state','phone',"company_name",'alt_first_name','alt_last_name','alt_street','alt_street2','alt_city','alt_state','alt_phone',"alt_company_name"]);
+    $db->updateRow(['first_name','last_name','street','street2','city','state','phone',"company_name",'alt_first_name','alt_last_name','alt_street','alt_street2','alt_city','alt_state','alt_phone',"alt_company_name",'country','shipping_country']);
     $strmessage = "Changes Saved";
     $smarty->assign("message", $strmessage);
     
@@ -58,6 +58,8 @@ $smarty->assign('street2',  $db->getFormFieldByColumnName("street2",true));
 $smarty->assign('city',  $db->getFormFieldByColumnName("city",true));
 $smarty->assign('state',  $db->getFormFieldByColumnName("state",true));
 $smarty->assign('company_name',  $db->getFormFieldByColumnName("company_name",false));
+$smarty->assign('country',  $db->getFormOptionFieldByColumnName("country", $db->getFieldByColumnName("country"), "SELECT id, countryname FROM countries ORDER BY countryname"));
+
 
 
 $smarty->assign('alt_first_name',  $db->getFormFieldByColumnName("alt_first_name",false));
@@ -70,7 +72,7 @@ $smarty->assign('alt_city',  $db->getFormFieldByColumnName("alt_city",false));
 $smarty->assign('alt_state',  $db->getFormFieldByColumnName("alt_state",false));
 $smarty->assign('alt_company_name',  $db->getFormFieldByColumnName("alt_company_name",false));
 
-//$smarty->assign('subject',  $db->getFormOptionFieldByColumnName("subject", $db->getFieldByColumnName("subject"), "SELECT SUBJECT, SUBJECT AS DESCRIPTION FROM SUBJECT where schoolno = '" . $SchoolNoLocal . "' ORDER BY SUBJECT"));
+$smarty->assign('shipping_country',  $db->getFormOptionFieldByColumnName("shipping_country", $db->getFieldByColumnName("shipping_country"), "SELECT id, countryname FROM countries ORDER BY countryname"));
 
 
 

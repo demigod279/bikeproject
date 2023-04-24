@@ -2,7 +2,7 @@
 
 <?php
 //session_start();
-
+//ini_set ('display_errors', 1); ini_set ('display_startup_errors', 1); error_reporting (E_ALL);
 
 include('DatabaseClassConfig.php');
 
@@ -83,7 +83,8 @@ include('DatabaseClassConfig.php');
       $smarty->assign("ListProducts",  $result );
     
       include('footerbase.php');
-
+      $confetti = $_GET["confetti"];
+      
 $smarty->display('index.tpl');
 
 

@@ -28,6 +28,17 @@
           <a class="dropdown-item border-0 transition-link" href="about.php">About</a>
         </div>
       </li>
+      <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" id="adminDropdown" href="#" style="visibility: {$admindropdown}"
+        data-bs-toggle="dropdown" aria-haspopup="false" aria-expanded="false">Admin</a>
+      <div class="dropdown-menu mt-3 shadow-sm" aria-labelledby="adminDropdown"><a
+          class="dropdown-item border-0 transition-link" href="customers.php">Customers</a><a
+          class="dropdown-item border-0 transition-link" href="orders.php">Orders</a><a
+          class="dropdown-item border-0 transition-link" href="products.php">Products</a><a
+          class="dropdown-item border-0 transition-link" href="categories.php">Categories</a>
+        <a class="dropdown-item border-0 transition-link" href="brands.php">Brands</a>
+      </div>
+    </li>
       </ul>
       <ul class="navbar-nav ms-auto">
       <li class="nav-item"><a class="nav-link" href="cart.php" style="visibility: {$accountdropdown}"> <i

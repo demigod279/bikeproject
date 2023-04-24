@@ -1,32 +1,38 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2023-02-17 05:46:50
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2023-04-21 05:55:33
          compiled from ".\templates\head.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:66194400663ef854a93ade8-30775649%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1580338850644287c58db3d0-00505143%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9f056aa610d82ca92d7c40e0ead0d618a619586d' => 
     array (
       0 => '.\\templates\\head.tpl',
-      1 => 1675263380,
+      1 => 1678972202,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '66194400663ef854a93ade8-30775649',
+  'nocache_hash' => '1580338850644287c58db3d0-00505143',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_63ef854a93bab4_93470674',
+  'unifunc' => 'content_644287c58dca14_22402214',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_63ef854a93bab4_93470674')) {function content_63ef854a93bab4_93470674($_smarty_tpl) {?><head>
+<?php if ($_valid && !is_callable('content_644287c58dca14_22402214')) {function content_644287c58dca14_22402214($_smarty_tpl) {?><head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Bike</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
+        
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/dataTables.bootstrap4.min.css">
+
     <!-- gLightbox gallery-->
+
+
     <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/boutique/2-0/vendor/glightbox/css/glightbox.min.css">
     <!-- Range slider-->
     <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/boutique/2-0/vendor/nouislider/nouislider.min.css">
@@ -43,7 +49,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/boutique/2-0/css/custom.0a822280.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/favicon.937cfaa3.png">
-    
+
     <?php echo '<script'; ?>
  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.1/jquery.min.js"><?php echo '</script'; ?>
 >

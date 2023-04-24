@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2023-02-17 05:46:50
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2023-03-14 06:42:59
          compiled from ".\templates\profile.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:194456987363ef854a909491-58482881%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2055668154641079e3883ad7-36942824%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '59fb60ee59c62d1cc2866cb559f2d69baa46e7ee' => 
     array (
       0 => '.\\templates\\profile.tpl',
-      1 => 1676560462,
+      1 => 1676992288,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '194456987363ef854a909491-58482881',
+  'nocache_hash' => '2055668154641079e3883ad7-36942824',
   'function' => 
   array (
   ),
@@ -22,6 +22,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'email' => 0,
     'phone' => 0,
     'company_name' => 0,
+    'country' => 0,
     'street' => 0,
     'street2' => 0,
     'city' => 0,
@@ -30,6 +31,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'alt_last_name' => 0,
     'alt_phone' => 0,
     'alt_company_name' => 0,
+    'shipping_country' => 0,
     'alt_street' => 0,
     'alt_street2' => 0,
     'alt_city' => 0,
@@ -38,9 +40,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_63ef854a92efd4_19821805',
+  'unifunc' => 'content_641079e38a37d5_40877314',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_63ef854a92efd4_19821805')) {function content_63ef854a92efd4_19821805($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_641079e38a37d5_40877314')) {function content_641079e38a37d5_40877314($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 
 <?php echo $_smarty_tpl->getSubTemplate ("head.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
@@ -113,10 +115,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                             </div>
                             <div class="col-lg-6 form-group">
                                 <label class="form-label text-sm text-uppercase" for="country">Country</label>
-                                <select class="country" id="country"
-                                    data-customclass="form-control form-control-lg rounded-0">
-                                    <option value>Choose your country</option>
-                                </select>
+                                <?php echo $_smarty_tpl->tpl_vars['country']->value;?>
+
                             </div>
                             <div class="col-lg-12">
                                 <label class="form-label text-sm text-uppercase" for="address">Address line 1
@@ -189,10 +189,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                             </div>
                             <div class="col-lg-6 form-group">
                                 <label class="form-label text-sm text-uppercase" for="country">Country</label>
-                                <select class="country" id="country"
-                                    data-customclass="form-control form-control-lg rounded-0">
-                                    <option value>Choose your country</option>
-                                </select>
+                                <?php echo $_smarty_tpl->tpl_vars['shipping_country']->value;?>
+
                             </div>
                             <div class="col-lg-12">
                                 <label class="form-label text-sm text-uppercase" for="address">Address line 1

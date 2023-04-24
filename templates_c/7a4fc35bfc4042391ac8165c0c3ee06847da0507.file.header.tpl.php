@@ -1,30 +1,31 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2023-02-17 05:46:50
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2023-04-21 05:55:33
          compiled from ".\templates\header.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:180522858663ef854a943de5-62453179%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1046691840644287c58e4845-96464387%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7a4fc35bfc4042391ac8165c0c3ee06847da0507' => 
     array (
       0 => '.\\templates\\header.tpl',
-      1 => 1675695293,
+      1 => 1678885062,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '180522858663ef854a943de5-62453179',
+  'nocache_hash' => '1046691840644287c58e4845-96464387',
   'function' => 
   array (
   ),
   'variables' => 
   array (
     'accountdropdown' => 0,
+    'admindropdown' => 0,
     'loginbutton' => 0,
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_63ef854a945b70_14466181',
+  'unifunc' => 'content_644287c58e6fb9_57188136',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_63ef854a945b70_14466181')) {function content_63ef854a945b70_14466181($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_644287c58e6fb9_57188136')) {function content_644287c58e6fb9_57188136($_smarty_tpl) {?>
  <header class="header bg-white">
  <div class="container px-lg-3">
    <nav class="navbar navbar-expand-lg navbar-light py-3 px-lg-0"><a class="navbar-brand" href="index.php"><span
@@ -55,6 +56,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
           <a class="dropdown-item border-0 transition-link" href="about.php">About</a>
         </div>
       </li>
+      <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" id="adminDropdown" href="#" style="visibility: <?php echo $_smarty_tpl->tpl_vars['admindropdown']->value;?>
+"
+        data-bs-toggle="dropdown" aria-haspopup="false" aria-expanded="false">Admin</a>
+      <div class="dropdown-menu mt-3 shadow-sm" aria-labelledby="adminDropdown"><a
+          class="dropdown-item border-0 transition-link" href="customers.php">Customers</a><a
+          class="dropdown-item border-0 transition-link" href="orders.php">Orders</a><a
+          class="dropdown-item border-0 transition-link" href="products.php">Products</a><a
+          class="dropdown-item border-0 transition-link" href="categories.php">Categories</a>
+        <a class="dropdown-item border-0 transition-link" href="brands.php">Brands</a>
+      </div>
+    </li>
       </ul>
       <ul class="navbar-nav ms-auto">
       <li class="nav-item"><a class="nav-link" href="cart.php" style="visibility: <?php echo $_smarty_tpl->tpl_vars['accountdropdown']->value;?>

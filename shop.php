@@ -3,7 +3,7 @@
 
 
 include('DatabaseClassConfig.php');
-
+//ini_set ('display_errors', 1); ini_set ('display_startup_errors', 1); error_reporting (E_ALL);
 //Place Code here
 
 
@@ -140,7 +140,7 @@ else{
                                 <div class="product text-center">
                                     <div class="mb-3 position-relative">
                                         <div class="badge text-white bg-"></div><a class="d-block"
-                                            href="detail.php?product_id"><img class="img-fluid w-100"
+                                            href="detail.php?product_id='.$product_id.'"><img class="img-fluid w-100"
                                                 src="images/'.$image.'"
                                                 alt="..."></a>
                                         <div class="product-overlay">
@@ -149,7 +149,7 @@ else{
                                                         class="btn btn-sm btn-outline-dark" href="#!"><i
                                                             class="far fa-heart"></i></a></li>
                                                 <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark"
-                                                        href="cart.php">Add to cart</a></li>
+                                                        href="cart.php?product_id='.$product_id.'&quantity=1&list_price='.$list_price.'">Add to cart</a></li>
                                                 <li class="list-inline-item mr-0"><a
                                                         class="btn btn-sm btn-outline-dark" href="#productView"
                                                         data-bs-toggle="modal"><i class="fas fa-expand"></i></a>
@@ -157,7 +157,7 @@ else{
                                             </ul>
                                         </div>
                                     </div>
-                                    <h6> <a class="reset-anchor" href="detail.php?product_id = '.$product_id.'">'.$product_name.'</a></h6>
+                                    <h6> <a class="reset-anchor" href="detail.php?product_id='.$product_id.'">'.$product_name.'</a></h6>
                                     <p class="small text-muted">'.$list_price.'</p>
                                 </div>
                             </div>';
